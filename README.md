@@ -7,4 +7,4 @@ Projet du cours d'électronique digitale - BAC 2 EPHEC
 - Geoffrey Brogniet  (@BrognietGeoffrey)
 - Séverin Robert (@severinRobert)
 - Lucas Silva (@...)
-- Mickael Parfondry (@...)
+- Mickael Parfondry (@Parfondry)
