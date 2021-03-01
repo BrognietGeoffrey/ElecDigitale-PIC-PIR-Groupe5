@@ -1,2 +1,10 @@
-# ElecDigitale-PIC-PIR-Groupe5
-Projet du cours d'électronique digitale - EPHEC BAC 2
+# Électronique digitale - PIC/PIR
+Projet du cours d'électronique digitale - BAC 2 EPHEC
+
+## Membres du groupe n°5 :
+
+- Baptiste Bellemans  (@...)
+- Geoffrey Brogniet  (@BrognietGeoffrey)
+- Séverin Robert (@...)
+- Lucas Silva (@...)
+- Mickael Parfondry (@...)
