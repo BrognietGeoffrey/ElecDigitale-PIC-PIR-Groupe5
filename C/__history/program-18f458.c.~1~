@@ -1,0 +1,16 @@
+#include <program-18f458.h>
+
+void main()
+{
+	setup_adc_ports(AN0);
+	setup_adc(ADC_CLOCK_INTERNAL);
+   setup_low_volt_detect(FALSE);
+
+	while(TRUE)
+	{
+
+
+		//TODO: User Code
+	}
+
+}
