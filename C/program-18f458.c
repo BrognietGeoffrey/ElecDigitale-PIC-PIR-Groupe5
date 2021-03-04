@@ -16,12 +16,12 @@ void main()
    
       // Gestion des led selon le nombre de personne
       if (valeur > seuil){
-         output_low(); //Dans la paranthèse faut indiquer la pin de la led verte car on fait diminuer l'intensité
-         output_toggle(); //Ici on doit indiquer la pin de la led rouge car on allume cette led car la valeur dépasse le seuil
+         output_low(); //Dans la paranthÃ¨se faut indiquer la pin de la led verte car on fait diminuer l'intensitÃ©
+         output_toggle(); //Ici on doit indiquer la pin de la led rouge car on allume cette led car la valeur dÃ©passe le seuil
       }
       else {
-         output_high(); //Vu qu'on doit tout le temps laisser la led verte allumé si la valeur ne dépasse pas le seuil, on la met en "haut"
-         output_low(); //Et vu qu'on doit laisser la led verte allumé en permanence, on éteins "down" la led rouge
+         output_high(); //Vu qu'on doit tout le temps laisser la led verte allumÃ© si la valeur ne dÃ©passe pas le seuil, on la met en "haut"
+         output_low(); //Et vu qu'on doit laisser la led verte allumÃ© en permanence, on Ã©teint "down" la led rouge
       }
 
 }
