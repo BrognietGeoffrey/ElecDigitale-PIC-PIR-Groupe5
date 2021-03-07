@@ -7,8 +7,8 @@ void main()
    int nb_personne = 0;
    int nb_max_personne = 3;
 
-   #bit PIR_IN= 15;// entree de la zone
-   #bit PIR_OUT= 16;// sortie de la zone
+   int PIR_IN= 15;// entree de la zone
+   int PIR_OUT= 16;// sortie de la zone
 
    setup_adc_ports(AN0); //pas besoin on utilise pas la pin AN0
    setup_adc(ADC_CLOCK_INTERNAL);
