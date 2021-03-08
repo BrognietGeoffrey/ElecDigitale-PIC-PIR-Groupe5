@@ -25,16 +25,17 @@ void main()
 
    while(TRUE)
    {
-		delay_ms(250);
+      delay_ms(250);
       set_adc_channel(0);// pin non utiliser pas neccessaire 
       output_e(read_adc());
-   	//verifier si il y a un passage entree ou sortie
-   	if(input(PIR_IN)) {
-   		nb_personne += 1;
-   	}
-   	if(input(PIR_OUT)) {
-   		nb_personne -= 1;
-   	}
+      //verifier si il y a un passage entree ou sortie
+      if(input(PIR_IN)) {
+
+         nb_personne += 1;
+      }
+      if(input(PIR_OUT) && nb_personne != 0) {
+         nb_personne -= 1;
+      }
    
       // Gestion des led selon le nombre de personne
       if (nb_personne > nb_max_personne){
@@ -47,7 +48,9 @@ void main()
 
       // Gestion des afficheurs 7 segment
       int unite = nb_personne%10;
-      int dizaine = (nb_personne/10) %10;
+      int dizaine = nb_personne/10;
+      output_b(dizaine);
+      output_b((unite<<4));
 
 
    }
