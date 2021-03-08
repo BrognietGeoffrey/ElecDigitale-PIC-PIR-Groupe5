@@ -39,11 +39,11 @@ void main()
       output_e(read_adc());
 
       //verifier si il y a un passage entree ou sortie
-      if(input(PIR_IN)) {
+      if(PIN_C0 == 1) {
          nb_personne += 1;
          printf("Une personne en plus dans la zone : %d personnes dans la zone\n",nb_personne);
       }
-      if(input(PIR_OUT) && nb_personne != 0) {
+      if(PIN_C1 == 1 && nb_personne != 0) {
          nb_personne -= 1;
          printf("Une personne en moins dans la zone : %d personnes dans la zone\n",nb_personne);
       }
