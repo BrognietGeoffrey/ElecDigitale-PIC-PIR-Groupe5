@@ -51,7 +51,5 @@ void main()
       int dizaine = nb_personne/10;
       output_b(dizaine);
       output_b((unite<<4));
-
-
    }
 }
