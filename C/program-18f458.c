@@ -21,7 +21,6 @@ void main()
 
    setup_adc_ports(NO_ANALOGS); //pas besoin on utilise pas la pin AN0
    setup_adc(ADC_OFF);
-   setup_low_volt_detect(FALSE);
    setup_psp(PSP_DISABLED);
    setup_spi(FALSE);
    setup_wdt(WDT_OFF);
@@ -41,18 +40,18 @@ void main()
       //verifier si il y a un passage entree ou sortie
       if(PIN_C0 == 1) {
          nb_personne += 1;
-         printf("Une personne en plus dans la zone : %d personnes dans la zone\n",nb_personne);
+         //printf("Une personne en plus dans la zone : %d personnes dans la zone\n",nb_personne);
       }
       if(PIN_C1 == 1 && nb_personne != 0) {
          nb_personne -= 1;
-         printf("Une personne en moins dans la zone : %d personnes dans la zone\n",nb_personne);
+         //printf("Une personne en moins dans la zone : %d personnes dans la zone\n",nb_personne);
       }
    
       // Gestion des led selon le nombre de personne
       if (nb_personne > nb_max_personne){
          output_low(10); //Dans la paranthèse faut indiquer la pin de la led verte car on l'éteind
          output_toggle(9); //Ici on doit indiquer la pin de la led rouge car on allume cette led car la valeur dépasse le seuil
-         printf("Trop de personnes sont dans la zone : %d personnes dans la zone\n",nb_personne);
+         //printf("Trop de personnes sont dans la zone : %d personnes dans la zone\n",nb_personne);
       }
       else {
          output_e(0b100);// met E0 à 0, E1 à 0 et E2 à 1
