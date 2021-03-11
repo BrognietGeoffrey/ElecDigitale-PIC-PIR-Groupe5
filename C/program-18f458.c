@@ -9,7 +9,7 @@ boolean flag = 0;
 #int_RDA
 void RDA_isr(void)
 {
-   buffer[0] = getc();
+   buffer[0] = int(getc());
    flag = 1;
 }
 
