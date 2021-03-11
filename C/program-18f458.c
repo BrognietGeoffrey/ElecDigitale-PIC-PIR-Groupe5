@@ -1,13 +1,15 @@
 #include <program-18f458.h>
 #include <stdio.h>
 
-int buffer;
+#define BUFFER_SIZE 3
+
+char buffer[BUFFER_SIZE];
 boolean flag = 0;
 
 #int_RDA
 void RDA_isr(void)
 {
-   buffer = int(getc());
+   buffer[0] = getc();
    flag = 1;
 }
 
@@ -19,6 +21,7 @@ void main()
    int PIR_IN= 15;// entree de la zone
    int PIR_OUT= 16;// sortie de la zone
 
+   enable_interrupts(INT_RDA);
    setup_adc_ports(NO_ANALOGS); //pas besoin on utilise pas la pin AN0
    setup_adc(ADC_OFF);
    setup_psp(PSP_DISABLED);
@@ -31,7 +34,7 @@ void main()
    setup_vref(FALSE);
    setup_oscillator(FALSE);
 
-   while(TRUE)
+   while(true)
    {
       delay_ms(250);
       set_adc_channel(0);// pin non utiliser pas neccessaire 
