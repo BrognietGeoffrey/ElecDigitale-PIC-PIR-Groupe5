@@ -18,9 +18,6 @@ void main()
    int nb_personne = 0;
    int nb_max_personne = 3;
 
-   int PIR_IN= 15;// entree de la zone
-   int PIR_OUT= 16;// sortie de la zone
-
    enable_interrupts(INT_RDA);
    setup_adc_ports(NO_ANALOGS); //pas besoin on utilise pas la pin AN0
    setup_adc(ADC_OFF);
