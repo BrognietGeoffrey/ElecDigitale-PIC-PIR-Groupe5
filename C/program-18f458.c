@@ -18,7 +18,7 @@ void main()
    int nb_personne = 0;
    int nb_max_personne = 3;
 
-   enable_interrupts(INT_RDA);
+   //enable_interrupts(INT_RDA);
    setup_adc_ports(NO_ANALOGS); //pas besoin on utilise pas la pin AN0
    setup_adc(ADC_OFF);
    setup_psp(PSP_DISABLED);
