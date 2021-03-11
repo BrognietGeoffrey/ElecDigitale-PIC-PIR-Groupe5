@@ -5,13 +5,13 @@
 
 char buffer[BUFFER_SIZE];
 boolean flag = 0;
-
+/*
 #int_RDA
 void RDA_isr(void)
 {
    buffer[0] = getc();
    flag = 1;
-}
+}*/
 
 void main()
 {
@@ -61,15 +61,17 @@ void main()
       }
 
       // Gestion des afficheurs 7 segment
+      /*
       int unite = nb_personne%10;
       int dizaine = nb_personne/10;
       output_b(dizaine);
-      output_b((unite<<4));
+      output_b((unite<<4));*/
 
       // Gestion du port com
+      /*
       if(flag) {
          nb_max_personnes = buffer[0];
-      }
+      }*/
 
    }
 }
