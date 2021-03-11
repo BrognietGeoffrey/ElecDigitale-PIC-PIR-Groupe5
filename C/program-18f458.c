@@ -9,7 +9,7 @@ boolean flag = 0;
 #int_RDA
 void RDA_isr(void)
 {
-   buffer[0] = int(getc());
+   buffer[0] = getc();
    flag = 1;
 }
 
@@ -68,7 +68,7 @@ void main()
 
       // Gestion du port com
       if(flag) {
-         nb_max_personnes = buffer;
+         nb_max_personnes = buffer[0];
       }
 
    }
