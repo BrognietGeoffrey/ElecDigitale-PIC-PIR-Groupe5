@@ -54,7 +54,8 @@ void main()
          //printf("Trop de personnes sont dans la zone : %d personnes dans la zone\n",nb_personne);
       }
       else {
-         output_e(0b100);// met E0 à 0, E1 à 0 et E2 à 1
+         output_low(9);
+         output_high(10);
       }
 
       // Gestion des afficheurs 7 segment
