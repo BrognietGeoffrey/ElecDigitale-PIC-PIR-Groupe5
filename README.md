@@ -3,7 +3,7 @@ Projet du cours d'électronique digitale - BAC 2 EPHEC
 
 ## Membres du groupe n°5 :
 
-- Baptiste Bemelemans  (@BaptisteBemel)
+- Baptiste Bemelmans  (@BaptisteBemel)
 - Geoffrey Brogniet  (@BrognietGeoffrey)
 - Séverin Robert (@severinRobert)
 - Lucas Silva (@creativezigzz)
