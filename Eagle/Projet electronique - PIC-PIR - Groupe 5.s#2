@@ -10001,9 +10001,9 @@ Based on the following sources:
 <attribute name="NAME" x="30.48" y="257.175" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="30.48" y="278.13" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="DIS2" gate="N" x="27.94" y="228.6" smashed="yes" rot="R90">
-<attribute name="NAME" x="33.02" y="219.075" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="33.02" y="240.03" size="1.778" layer="96" rot="R180"/>
+<instance part="DIS2" gate="N" x="27.94" y="226.06" smashed="yes" rot="R90">
+<attribute name="NAME" x="33.02" y="216.535" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="33.02" y="237.49" size="1.778" layer="96" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -10224,104 +10224,6 @@ Based on the following sources:
 <wire x1="-73.66" y1="228.6" x2="-73.66" y2="266.7" width="0.1524" layer="91"/>
 <pinref part="PIC" gate="G$1" pin="PGD/RB7"/>
 <wire x1="-73.66" y1="266.7" x2="-76.2" y2="266.7" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$12" class="0">
-<segment>
-<pinref part="IC1" gate="A" pin="A"/>
-<pinref part="DIS1" gate="N" pin="A"/>
-<wire x1="-15.24" y1="274.32" x2="10.16" y2="274.32" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$13" class="0">
-<segment>
-<pinref part="IC1" gate="A" pin="B"/>
-<pinref part="DIS1" gate="N" pin="B"/>
-<wire x1="-15.24" y1="271.78" x2="10.16" y2="271.78" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$14" class="0">
-<segment>
-<pinref part="IC1" gate="A" pin="C"/>
-<pinref part="DIS1" gate="N" pin="C"/>
-<wire x1="-15.24" y1="269.24" x2="10.16" y2="269.24" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$15" class="0">
-<segment>
-<pinref part="IC1" gate="A" pin="D"/>
-<pinref part="DIS1" gate="N" pin="D"/>
-<wire x1="-15.24" y1="266.7" x2="10.16" y2="266.7" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$16" class="0">
-<segment>
-<pinref part="IC1" gate="A" pin="E"/>
-<pinref part="DIS1" gate="N" pin="E"/>
-<wire x1="-15.24" y1="264.16" x2="10.16" y2="264.16" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$17" class="0">
-<segment>
-<pinref part="IC1" gate="A" pin="F"/>
-<pinref part="DIS1" gate="N" pin="F"/>
-<wire x1="-15.24" y1="261.62" x2="10.16" y2="261.62" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$18" class="0">
-<segment>
-<pinref part="IC1" gate="A" pin="G"/>
-<pinref part="DIS1" gate="N" pin="G"/>
-<wire x1="-15.24" y1="259.08" x2="10.16" y2="259.08" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$19" class="0">
-<segment>
-<pinref part="IC2" gate="A" pin="A"/>
-<pinref part="DIS2" gate="N" pin="A"/>
-<wire x1="-15.24" y1="236.22" x2="12.7" y2="236.22" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$20" class="0">
-<segment>
-<pinref part="IC2" gate="A" pin="B"/>
-<pinref part="DIS2" gate="N" pin="B"/>
-<wire x1="-15.24" y1="233.68" x2="12.7" y2="233.68" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$21" class="0">
-<segment>
-<pinref part="IC2" gate="A" pin="C"/>
-<pinref part="DIS2" gate="N" pin="C"/>
-<wire x1="-15.24" y1="231.14" x2="12.7" y2="231.14" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$22" class="0">
-<segment>
-<pinref part="IC2" gate="A" pin="D"/>
-<pinref part="DIS2" gate="N" pin="D"/>
-<wire x1="-15.24" y1="228.6" x2="12.7" y2="228.6" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$23" class="0">
-<segment>
-<pinref part="IC2" gate="A" pin="E"/>
-<pinref part="DIS2" gate="N" pin="E"/>
-<wire x1="-15.24" y1="226.06" x2="12.7" y2="226.06" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$24" class="0">
-<segment>
-<pinref part="IC2" gate="A" pin="F"/>
-<pinref part="DIS2" gate="N" pin="F"/>
-<wire x1="-15.24" y1="223.52" x2="12.7" y2="223.52" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$25" class="0">
-<segment>
-<pinref part="IC2" gate="A" pin="G"/>
-<pinref part="DIS2" gate="N" pin="G"/>
-<wire x1="-15.24" y1="220.98" x2="12.7" y2="220.98" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
