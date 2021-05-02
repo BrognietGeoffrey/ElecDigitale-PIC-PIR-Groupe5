@@ -1,75 +1,118 @@
 #include <program-18f458.h>
 #include <stdio.h>
-
 #define BUFFER_SIZE 3
 
+
 char buffer[BUFFER_SIZE];
-boolean flag = 0;
-/*
-#int_RDA
+
+int toRead=0; // Flag pour actualisation du seuil
+int compteur=0; // Nombre de caractère écrit
+
+#INT_EXT
+void EXT_isr(void) {
+   flag_add = true;
+}
+
+#INT_EXT1
+void EXT1_isr(void) {
+   flag_sub = true;
+}
+
+#INT_RDA
 void RDA_isr(void)
 {
-   buffer[0] = getc();
-   flag = 1;
-}*/
+   buffer[compteur] = getc();
+   if(buffer[0]=='!' && toRead==0){
+      compteur++;
+      if(compteur>=4){
+         compteur=0;
+         toRead=1;
+      }
+   } 
+}
+
+void envoi(bool f_plein, int nb_personne, int nb_max_personne) {
+   putc((char) f_plein);
+   putc((char) (personne >> 8));
+   putc((char) (personne & 0xff));
+   putc((char) (nb_max_personne >> 8));
+   putc((char) (nb_max_personne & 0xff));
+}
+
+void affichage(int value) {
+   output_high(PIN_UNITE);
+   output_low(PIN_DIZAINE);
+
+   output_b((value / 10) % 10);
+
+   output_low(PIN_UNITE);
+   output_high(PIN_DIZAINE);
+
+   output_b(value % 10);
+
+   output_high(PIN_UNITE);
+   output_high(PIN_DIZAINE);
+}
 
 void main()
 {
    int nb_personne = 0;
    int nb_max_personne = 3;
 
-   //enable_interrupts(INT_RDA);
-   setup_adc_ports(NO_ANALOGS); //pas besoin on utilise pas la pin AN0
-   setup_adc(ADC_OFF);
-   setup_psp(PSP_DISABLED);
-   setup_spi(FALSE);
-   setup_wdt(WDT_OFF);
+   enable_interrupts(INT_EXT);
+   enable_interrupts(INT_EXT1);
+   enable_interrupts(INT_RDA);
+   enable_interrupts(GLOBAL);
+
+   setup_low_volt_detect(false);
    setup_timer_0(RTCC_INTERNAL);
-   setup_timer_1(T1_DISABLED);
-   setup_timer_2(T2_DISABLED,0,1);
-   setup_comparator(NC_NC_NC_NC);
-   setup_vref(FALSE);
-   setup_oscillator(FALSE);
+   
+
+   envoi(false, nb_personne, nb_max_personne);
+   output_high(LED_VERT);
+   output_low(LED_ROUGE);
 
    while(true)
    {
-      delay_ms(250);
       set_adc_channel(0);// pin non utiliser pas neccessaire 
       output_e(read_adc());
 
-      //verifier si il y a un passage entree ou sortie
-      if(PIN_C0 == 1) {
-         nb_personne += 1;
-         //printf("Une personne en plus dans la zone : %d personnes dans la zone\n",nb_personne);
-      }
-      if(PIN_C1 == 1 && nb_personne != 0) {
-         nb_personne -= 1;
-         //printf("Une personne en moins dans la zone : %d personnes dans la zone\n",nb_personne);
-      }
-   
-      // Gestion des led selon le nombre de personne
-      if (nb_personne > nb_max_personne){
-         output_low(10); //Dans la paranthèse faut indiquer la pin de la led verte car on l'éteind
-         output_toggle(9); //Ici on doit indiquer la pin de la led rouge car on allume cette led car la valeur dépasse le seuil
-         //printf("Trop de personnes sont dans la zone : %d personnes dans la zone\n",nb_personne);
-      }
-      else {
-         output_low(9);
-         output_high(10);
+      if (flag_add) {
+         flag_add = false;
+         change = !change;
+         ++nb_personne;
       }
 
-      // Gestion des afficheurs 7 segment
-      /*
-      int unite = nb_personne%10;
-      int dizaine = nb_personne/10;
-      output_b(dizaine);
-      output_b((unite<<4));*/
+      if (flag_sub) {
+         flag_sub = false;
+         if (nb_personne > 0) {
+            change = !change;
+            --nb_personne;
+         }
+      }
 
-      // Gestion du port com
-      /*
-      if(flag) {
-         nb_max_personnes = buffer[0];
-      }*/
+      if (flag_dat) {
+         flag_dat = false;
+         output_high(LED_ROUGE);
+         change = false;
+      }
 
+      if (change) {
+         affichage(nb_personne);
+         bool f_plein = nb_personne >= nb_max_personne;
+
+         if (f_plein) {
+            output_toggle(LED_ROUGE);
+            output_low(LED_VERT);
+         } else {
+            output_low(LED_ROUGE);
+            output_high(LED_VERT);
+         }
+         envoi(f_plein, nb_personne, nb_max_personne);
+      }
+
+      change = false;
+
+      delay_ms(200);
    }
 }
