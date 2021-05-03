@@ -7,6 +7,13 @@ char buffer[BUFFER_SIZE];
 
 int toRead=0; // Flag pour actualisation du seuil
 int compteur=0; // Nombre de caractère écrit
+int i, x;
+bool flag_add = false;
+bool flag_sub = false;
+bool flag_dat = false;
+bool f_plein = false;
+bool change = false;
+int nb_personne = 0;
 
 #INT_RDA
 void RDA_isr(void)
