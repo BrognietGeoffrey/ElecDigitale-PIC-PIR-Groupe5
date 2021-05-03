@@ -8,11 +8,9 @@ char buffer[BUFFER_SIZE];
 int toRead=0; // Flag pour actualisation du seuil
 int compteur=0; // Nombre de caractère écrit
 int i, x;
-bool flag_add = false;
-bool flag_sub = false;
-bool flag_dat = false;
-bool f_plein = false;
-bool change = false;
+boolean flag_dat = false;
+boolean f_plein = false;
+boolean change = false;
 int nb_personne = 0;
 
 #INT_RDA
@@ -59,7 +57,6 @@ void main()
    setup_timer_0(RTCC_INTERNAL);
    
 
-   envoi(false, nb_personne, nb_max_personne);
    output_high(LED_VERT);
    output_low(LED_ROUGE);
 
@@ -68,14 +65,10 @@ void main()
       set_adc_channel(0);// pin non utiliser pas neccessaire 
       output_e(read_adc());
 
-      if (flag_add) {
-         flag_add = false;
+      if (input(PIN_C0) == 0 && input(PIN_C1) == 1) {
          change = !change;
          ++nb_personne;
-      }
-
-      if (flag_sub) {
-         flag_sub = false;
+      } else if (input(PIN_C0) == 1 && input(PIN_C1) == 0) {
          if (nb_personne > 0) {
             change = !change;
             --nb_personne;
@@ -91,7 +84,7 @@ void main()
       if (change) {
          int sortie = convertisseurSortie(nb_personne);
          affichage(sortie);
-         bool f_plein = nb_personne >= nb_max_personne;
+         boolean f_plein = nb_personne >= nb_max_personne;
 
          if (f_plein) {
             output_toggle(LED_ROUGE);
