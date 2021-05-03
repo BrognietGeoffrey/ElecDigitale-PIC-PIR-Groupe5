@@ -11,7 +11,7 @@ void display(int value);
 int convertisseurSortie(int valeur);
 
 // Pin aliases
-#define LED_RED   PIN_E1
-#define LED_GREEN PIN_E2
+#define LED_ROUGE   PIN_E1
+#define LED_VERT PIN_E2
 #define PIN_DIZAINE  PIN_E1
 #define PIN_UNITE PIN_E0
