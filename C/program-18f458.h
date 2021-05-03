@@ -8,6 +8,7 @@
 
 void envoi(bool f_plein, int nb_personne, int nb_max_personne);
 void display(int value);
+int convertisseurSortie(int valeur);
 
 // Pin aliases
 #define LED_RED   PIN_E1
