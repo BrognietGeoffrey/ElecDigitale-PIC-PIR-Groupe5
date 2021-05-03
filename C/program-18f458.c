@@ -41,8 +41,8 @@ int convertisseurSortie(int valeur){
    return sortie;
 }
 
-void affichage(int value) {
-   output_b(value);
+void affichage(int valeur) {
+   output_b(valeur);
 }
 
 void main()
@@ -55,6 +55,14 @@ void main()
 
    setup_low_volt_detect(false);
    setup_timer_0(RTCC_INTERNAL);
+   setup_adc_ports(NO_ANALOGS);
+   setup_adc(ADC_OFF);
+   setup_spi(FALSE);
+   setup_wdt(WDT_OFF);
+   setup_timer_1( T1_INTERNAL | T1_DIV_BY_1  );
+   setup_comparator(NC_NC_NC_NC);
+   setup_vref(FALSE);
+   setup_oscillator(False);
    
 
    output_high(LED_VERT);
@@ -63,15 +71,14 @@ void main()
    while(true)
    {
       set_adc_channel(0);// pin non utiliser pas neccessaire 
-      output_e(read_adc());
 
       if (input(PIN_C0) == 0 && input(PIN_C1) == 1) {
-         change = !change;
-         ++nb_personne;
+         change = true;
+         nb_personne += 1;
       } else if (input(PIN_C0) == 1 && input(PIN_C1) == 0) {
          if (nb_personne > 0) {
-            change = !change;
-            --nb_personne;
+            change = true;
+            nb_personne -= 1;
          }
       }
 
@@ -93,11 +100,9 @@ void main()
             output_low(LED_ROUGE);
             output_high(LED_VERT);
          }
-         printf("%d", convertisseurSortie(nb_personnes));
+         printf("%d", sortie);
+         change = false;
       }
-
-      change = false;
-
       delay_ms(200);
    }
 }
