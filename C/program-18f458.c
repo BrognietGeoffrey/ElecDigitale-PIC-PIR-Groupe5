@@ -29,20 +29,16 @@ void RDA_isr(void)
 int convertisseurSortie(int valeur){
    int sortie = 0;
    if (valeur < 10) {
-      sortie = valeur;
-   }else {
+      sortie = valeur*16;
+   } else {
        x = valeur;
        x = x % 10;
        i = valeur;
        i = i/10;
 
-       sortie = x + i*16;
+       sortie = i + x*16;
    }
    return sortie;
-}
-
-void affichage(int valeur) {
-   output_b(valeur);
 }
 
 void main()
@@ -92,7 +88,7 @@ void main()
 
       if (change) {
          int sortie = convertisseurSortie(nb_personne);
-         affichage(sortie);
+         output_b(sortie);
          boolean f_plein = nb_personne >= nb_max_personne;
 
          if (f_plein) {
