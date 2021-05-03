@@ -75,10 +75,12 @@ void main()
       if (input(PIN_C0) == 0 && input(PIN_C1) == 1) {
          change = true;
          nb_personne += 1;
+         delay_ms(200);
       } else if (input(PIN_C0) == 1 && input(PIN_C1) == 0) {
          if (nb_personne > 0) {
             change = true;
             nb_personne -= 1;
+            delay_ms(200);
          }
       }
 
@@ -100,7 +102,7 @@ void main()
             output_low(LED_ROUGE);
             output_high(LED_VERT);
          }
-         printf("%d", sortie);
+         printf("%d", nb_personne);
          change = false;
       }
       delay_ms(200);
