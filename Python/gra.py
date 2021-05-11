@@ -10,7 +10,6 @@ url1name = "https://github.com/BrognietGeoffrey/ElecDigitale-PIC-PIR-Groupe5/tre
 url2 = 1; 
 url2name = "https://github.com/BrognietGeoffrey/ElecDigitale-PIC-PIR-Groupe5/tree/main/C"
 
-#picData = serial.Serial('COM2', baudrate=9600, timeout=1)
 
 def openButtonPython():
     webbrowser.open(url1name, new=url1)
@@ -23,6 +22,8 @@ def closeWindow():
 
 #Fonction qui délimite le nombre de personne
 def limit():
+    picData = serial.Serial('COM1', baudrate=9600, timeout=1)
+
     read = Spinbox.get()
     picData.write(read.encode())
     time.sleep()
@@ -30,12 +31,14 @@ def limit():
 
 #Fonction qui lit les données du PIC
 def readDataPic():
+    picData = serial.Serial('COM1', baudrate=9600, timeout=1)
+
     #On reçoit du code Ascii donc on le décode
     data = picData.readline().decode("ascii")
 
     #Si les données sont différentes de rien donc on imprime les valeurs
     if data != "":
-        value = int(data)
+        value = 2
         print(value)
 
         #On instancie la variable limit avec notre fonction qui délimite le nombre de personnes
@@ -44,11 +47,11 @@ def readDataPic():
         #Si la valeur est en dessous de la limite fixée dans la fonction limit(), alors on indique le message positif
         if value < int(limit):
             input = "Il y a " + value + "personnes. Plus que " + (limit-value) + "autorisée(s)"
-            Label.config(text=input) #On indique où placer le texte pour Tkinter
+            labelInfo.config(text=input) #On indique où placer le texte pour Tkinter
         #Si la valeur dépasse la limite fixée dans la fonction limit(), alors on indique le message négatif    
         else:
             input = "Il y a " + value + "Attention, le nombre limit est dépassé (info nombre : " + value + "). Pour revenir au nombre limite, " + (value-limit) + "doivent partir"
-            Label.config(text=input) #On indique où placer le texte pour Tkinter
+            labelInfo.config(text=input) #On indique où placer le texte pour Tkinter
     window.after(100, readDataPic)   
 
 window = Tk()
