@@ -85,6 +85,10 @@ void main()
          }
       }
 
+      if(toRead) {
+      	nb_max_personne = buffer[1];
+      }
+
       // Si le nombre de personne dans la salle change
       if (change) {
          int sortie = convertisseurSortie(nb_personne);
