@@ -4,13 +4,15 @@ import webbrowser
 import serial
 import time
 
+# -------------- Partie programmation ------------------- #
+
+# Url pour les boutons des codes
 url1 = 1; 
 url1name = "https://github.com/BrognietGeoffrey/ElecDigitale-PIC-PIR-Groupe5/tree/main/Python"
-
 url2 = 1; 
 url2name = "https://github.com/BrognietGeoffrey/ElecDigitale-PIC-PIR-Groupe5/tree/main/C"
 
-
+# Boutons des codes et de fermeture
 def openButtonPython():
     webbrowser.open(url1name, new=url1)
 
@@ -24,7 +26,7 @@ def closeWindow():
 def limit():
     picData = serial.Serial('COM1', baudrate=9600, timeout=1)
 
-    read = Spinbox.get()
+    read = spinbox.get()
     picData.write(read.encode())
     time.sleep()
     return read
@@ -54,6 +56,7 @@ def readDataPic():
             labelInfo.config(text=input) #On indique où placer le texte pour Tkinter
     window.after(100, readDataPic)   
 
+# --------------------- Partie graphique ---------------- #
 window = Tk()
 window.title("PIC/PIR")
 window.geometry('700x300')
