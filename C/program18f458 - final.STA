@@ -1,0 +1,58 @@
+
+ROM used:   968/32768 (3%)
+            968/32768 (3%) including unused fragments
+
+            0.7 Average locations per line
+            5.0 Average locations per statement
+
+RAM used:   42/1536 (3%) at main() level
+            54/1536 (4%) worst case
+
+Stack used: 0 worst case (0 in main + 0 for interrupts)
+Stack size: 31
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  114    64  33  program18f458 - final.c
+   14     0   0  program18f458 - final.h
+  818     0   0  ..\..\..\Program Files (x86)\PICC\Devices\18F458.h
+   37     0   0  ..\..\..\Program Files (x86)\PICC\Drivers\stdio.h
+  435   129  67  ..\..\..\Program Files (x86)\PICC\Drivers\string.h
+   32     0   0  ..\..\..\Program Files (x86)\PICC\Drivers\stddef.h
+   28     0   0  ..\..\..\Program Files (x86)\PICC\Drivers\ctype.h
+----- -----
+ 1478   193 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     38   2    1             @delay_ms1
+0     64   3    1             @PUTCHAR_1_
+0     72   4    1             @GETCH_1_
+0     66   3    4    187  4.4  RDA_isr
+0     72   4    2    283  5.8  convertisseurSortie
+0     40   2    3             @DIV88
+0    274  14    6   1396  7.9  MAIN
+0    172   9    6             @PRINTF_D_720
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               3
+    Statements              193
+    Comments                341
+    Volume (V)              2242
+    Difficulty (D)          17.7
+    Effort to implement (E) 39681
+    Time to implement (T)   37 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   9
+    Maintainability (MI)    32
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-00006     0  4  
+00008-000AC   166  0  
+000AE-07FFE   798  31796  
+
+
+

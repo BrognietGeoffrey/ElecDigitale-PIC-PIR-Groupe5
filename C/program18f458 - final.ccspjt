@@ -1,0 +1,39 @@
+[PROJECT]
+Target=program18f458 - final.hex
+Processor_Text=PIC18F458
+CCSVerions=5.101d-Prelim-01/22/21
+Compiler=PCH
+CCSVersion=5.101Pd
+[Target Data]
+FileList=program18f458 - final.c
+[Directories]
+Include=
+[C:\Users\brogn\Documents\program18f458 - final]
+Type=4
+[mru-list]
+1=program18f458 - final.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=1
+D1=17-05-2021
+D1_L=2
+D1_L1=[35510]Project Opened.
+D1_L2=[35513]Started Editing.
+
+[Opened Files]
+1=program18f458 - final.c
+t1=6
+2=program18f458 - final.h
+t2=1
+Count=2
+[program18f458 - final.c]
+Type=4
+[Units]
+Count=1
+1=program18f458 - final (main)
+
+[defines]
+buildcount=1

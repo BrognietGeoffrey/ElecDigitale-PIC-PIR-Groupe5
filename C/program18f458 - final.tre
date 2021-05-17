@@ -1,0 +1,19 @@
+ÀÄprogram18f458 - final
+   ÃÄMAIN  0/274  Ram=6
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÃÄ@cinit2  (Inline)  Ram=0
+   ³  ÃÄ@delay_ms1  0/38  Ram=1
+   ³  ÃÄ@delay_ms1  0/38  Ram=1
+   ³  ÃÄconvertisseurSortie  0/72  Ram=2
+   ³  ³  ÃÄ@DIV88  0/40  Ram=3
+   ³  ³  ÀÄ@DIV88  0/40  Ram=3
+   ³  ÃÄ@PRINTF_D_720  0/172  Ram=6
+   ³  ³  ÃÄ@DIV88  0/40  Ram=3
+   ³  ³  ÃÄ@DIV88  0/40  Ram=3
+   ³  ³  ÃÄ@PUTCHAR_1_  0/64  Ram=1
+   ³  ³  ÃÄ@PUTCHAR_1_  0/64  Ram=1
+   ³  ³  ÃÄ@PUTCHAR_1_  0/64  Ram=1
+   ³  ³  ÀÄ@PUTCHAR_1_  0/64  Ram=1
+   ³  ÀÄ@delay_ms1  0/38  Ram=1
+   ÀÄRDA_isr  0/66  Ram=4
+      ÀÄ@GETCH_1_  0/72  Ram=1
