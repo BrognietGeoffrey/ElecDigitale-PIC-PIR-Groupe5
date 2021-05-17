@@ -57,13 +57,21 @@ def readDataPic():
             info = "Le nombre de personne ne dépasse pas la limite"
             labelNumber.config(text=number)
             labelInfo.config(text=info)  # On indique où placer le texte pour Tkinter
+            labelInfo.config(bg="green") # couleur verte pour safe
+        elif value == int(maximum):
+            number = "Voici le nombre de personnes : {}".format(value)
+            info = "Attention la limite est atteinte !"
+            labelNumber.config(text=number)
+            labelInfo.config(text=info)  # On indique où placer le texte pour Tkinter
+            labelInfo.config(bg="orange") # couleur verte pour safe
         # Si la valeur dépasse la limite fixée dans la fonction limit(), alors on indique le message négatif
-        elif value >= int(maximum):
+        elif value > int(maximum):
             number = "Voici le nombre de personnes : {}".format(value)
             info = "Le nombre de personne dépasse la limite"
             labelNumber.config(text=number)
             labelInfo.config(text=info)  # On indique où placer le texte pour Tkinter
-    window.after(1, readDataPic)
+            labelInfo.config(bg="red") # Changement de couleur en rouge
+    window.after(10, readDataPic)
 
 
 # --------------------- Partie graphique ---------------- #
@@ -100,6 +108,7 @@ buttonConfirm.grid(column=0, row=4)
 
 window.update()
 
+
 if __name__ == '__main__':
-    window.after(10, readDataPic)
+    window.after(1000, readDataPic)
     window.mainloop()
